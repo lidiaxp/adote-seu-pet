@@ -8,7 +8,7 @@ import java.net.URL;
 public class LifeCat extends javax.swing.JFrame {
     private static String nomear;
     private static String racear;
-    Gato larry = new Gato (nomear, racear, 8    , 4, 6, 4, false, false, false, 5);
+    Gato larry = new Gato (nomear, racear, 8 , 4, 6, 4, false, false, false, 5);
     private int a,b,c,d,e,f,g,h,i,j,k = 0;
     
     public LifeCat(String name,String raca) {
@@ -18,6 +18,16 @@ public class LifeCat extends javax.swing.JFrame {
         nome.setText(name);
         nomear = name;
         racear = raca;
+    }
+    
+    public void morte(){
+        if(larry.morrer() == 0){
+            URL url = getClass().getResource("gato.wav");
+            AudioClip audio = Applet.newAudioClip(url);
+            audio.play();
+            new Lose().setVisible(true);
+            this.dispose();
+        }
     }
     
     public void namorar(){
@@ -38,6 +48,7 @@ public class LifeCat extends javax.swing.JFrame {
         }       
         amor.setText("Amor: " + larry.getAmor());
         namorar();
+        morte();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -321,7 +332,6 @@ public class LifeCat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        win();
         Cachorro dog = new Cachorro ("inimigo", "Pitbull", 20, 20, 25, 20, true, true, true, true);
         Luta t = new Luta(larry, dog);
         if(t.vencedor() == 0){
@@ -335,62 +345,26 @@ public class LifeCat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        win();
-        amor.setText("Amor: " + larry.getAmor());
         larry.correr();
-        if(larry.morrer() == 0){
-            URL url = getClass().getResource("gato.wav");
-            AudioClip audio = Applet.newAudioClip(url);
-            audio.play();
-            new Lose().setVisible(true);
-            this.dispose();
-        }
         win();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        win();
-        amor.setText("Amor: " + larry.getAmor());
         larry.estudar();
-        if(larry.morrer() == 0){
-            URL url = getClass().getResource("gato.wav");
-            AudioClip audio = Applet.newAudioClip(url);
-            audio.play();
-            new Lose().setVisible(true);
-            this.dispose();
-        }
         win();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        win();
         larry.coragiar();
-        if(larry.morrer() == 0){
-            URL url = getClass().getResource("gato.wav");
-            AudioClip audio = Applet.newAudioClip(url);
-            audio.play();
-            new Lose().setVisible(true);
-            this.dispose();
-        }
         win();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        win();
-        amor.setText("Amor: " + larry.getAmor());
         larry.carinho();
-        if(larry.morrer() == 0){
-            URL url = getClass().getResource("gato.wav");
-            AudioClip audio = Applet.newAudioClip(url);
-            audio.play();
-            new Lose().setVisible(true);
-            this.dispose();
-        }
         win();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        win();
         Cachorro dog = new Cachorro ("inimigo", "Pitbull", 10, 12, 10, 10, true, false, false, true);
         Luta q = new Luta(larry,dog);
         if(q.vencedor() == 0){
@@ -404,7 +378,6 @@ public class LifeCat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        win();
         Gato cat = new Gato ("inimigo", "schrodinger", 10, 10, 15, 10, true, false, false, 10);
         Luta w = new Luta(cat,larry);
         if(w.vencedor() == 0){
@@ -420,7 +393,6 @@ public class LifeCat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        win();
         Gato cat = new Gato ("inimigo", "schrodinger", 25, 20, 20, 20, true, true, true, 10);
         Luta r = new Luta(larry, cat);
         if(r.vencedor() == 0){
@@ -434,7 +406,6 @@ public class LifeCat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        win();
         Passarinho bird = new Passarinho ("inimigo", "Calopsita", 10, 10, 12, 10, true, false, false, true);
         Luta y = new Luta(larry,bird);
         if(y.vencedor() == 0){
@@ -448,7 +419,6 @@ public class LifeCat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        win();
         Passarinho bird = new Passarinho ("inimigo", "Calopsita", 20, 25, 20, 10, true, false, false, true);
         Luta u = new Luta(larry,bird);
         if(u.vencedor() == 0){
@@ -462,7 +432,6 @@ public class LifeCat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        win();
         Cachorro dog = new Cachorro ("amor", "maltes", 15, 16, 17, 30, true, true, true, true);
         Namorar o = new Namorar(larry,dog);
         if(o.vencedor() == 0){
@@ -477,7 +446,6 @@ public class LifeCat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        win();
         Gato cat = new Gato ("amor", "persia", 17, 16, 15, 30, true, true, true, 10);
         Namorar p = new Namorar(larry, cat);
         if(p.vencedor() == 0){
@@ -492,7 +460,6 @@ public class LifeCat extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        win();
         Passarinho bird = new Passarinho ("amor", "papagaio", 16, 17, 15, 30, true, true, true, true);
         Luta l = new Luta(larry,bird);
         if(l.vencedor() == 0){

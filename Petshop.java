@@ -23,22 +23,22 @@ public class Petshop extends javax.swing.JFrame {
         nomear = nome.getText();
         racear = raca.getText();
         if(especie.getText().equals("Cachorro")){
-            Cachorro jack = new Cachorro (nomear, racear, 5, 5, 7, 7, false, false, false, false);
+            //Cachorro jack = new Cachorro (nomear, racear, 5, 5, 7, 7, false, false, false, false);
             maternidade.setText("Parabéns, seu cachorro logo irá nascer, tente chocá-lo");
             x = 2;
         } else if (especie.getText().equals("Gato")) {
-            Gato larry = new Gato (nomear, racear, 8, 4, 6, 4, false, false, false, 5);
+            //Gato larry = new Gato (nomear, racear, 8, 4, 6, 4, false, false, false, 5);
             maternidade.setText("Parabéns, seu gato logo irá nascer, tente chocá-lo");
             x = 3;
         } else if (especie.getText().equals("Passarinho")) {
-            Passarinho jonhy = new Passarinho (nomear, racear, 6, 5, 3, 5, false, false, false, false);
+            //Passarinho jonhy = new Passarinho (nomear, racear, 6, 5, 3, 5, false, false, false, false);
             maternidade.setText("Parabéns, seu passarinho logo irá nascer, tente chocá-lo");
             x = 4;
         }else {
             throw new AnimalExcepetion("Escolha um animal para adotar");
         }
         if (nome.getText().equals("")||raca.getText().equals("")){
-            throw new NameExcepetion("De um nome e uma raça ao seu pet");
+            throw new NameExcepetion("Dê um nome e uma raça ao seu pet");
         } 
         if(nome.getText().equals(raca.getText())){
             throw new AnimalExcepetion("Raça não pode ser igual ao nome");
